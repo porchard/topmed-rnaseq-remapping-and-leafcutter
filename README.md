@@ -2,8 +2,6 @@
 
 ## Dependencies
 
-* bcftools
-* tabix
 * Singularity (v. >=3)
 * NextFlow (v. >= 21.04.0)
 

@@ -12,6 +12,7 @@ process list_samples_in_bcf {
     cache 'lenient'
     tag "${chrom}"
     clusterOptions='--partition=topmed-working --exclude=topmed,topmed2,topmed[4-10]'
+    container 'library://porchard/default/general:20220107'
 
     input:
     tuple val(chrom), path(vcf)
@@ -29,6 +30,7 @@ process list_samples_in_bcf {
 
 process split_bcf {
 
+    container 'library://porchard/default/general:20220107'
     errorStrategy 'ignore'
     cache 'lenient'
     tag "${chrom}"
@@ -51,6 +53,7 @@ process split_bcf {
 process merge_chroms {
 
     publishDir "${params.results}/vcf", mode: 'symlink'
+    container 'library://porchard/default/general:20220107'
     memory '2 GB'
     errorStrategy 'retry'
     cache 'lenient'
